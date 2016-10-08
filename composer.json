@@ -14,7 +14,7 @@
 
   "autoload": {
     "psr-4": {
-      "Eureka\\Component\\Error\\": "./"
+      "Eureka\\Component\\Error\\": "./src/Error/"
     }
   }
 

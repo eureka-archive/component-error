@@ -10,20 +10,19 @@
 namespace Eureka\Component\Error;
 
 /**
- * Class to handle error and transfort it into exceptions.
+ * Class to handle error and transfer it into exceptions.
  *
  * @author Romain Cottard
- * @version 2.1.0
  */
 class ErrorHandler
 {
     /**
      * Define Error Handler
      *
-     * @param    string $class     Class Name.
-     * @param    string $method    Class method.
-     * @param    string $namespace Class Namespace.
-     * @return   callback  Previous exception handler.
+     * @param  string $class Class Name.
+     * @param  string $method Class method.
+     * @param  string $namespace Class Namespace.
+     * @return callback  Previous exception handler.
      */
     public static function register($class = 'ErrorHandler', $method = 'handler', $namespace = 'Eureka\Component\Error')
     {
@@ -35,12 +34,12 @@ class ErrorHandler
     /**
      * Error handler. Throw new Eureka ErrorException
      *
-     * @param    integer $severity Severity code Error.
-     * @param    string  $message  Error message.
-     * @param    string  $file     File name for Error.
-     * @param    integer $line     File line for Error.
-     * @return   void
-     * @throws   ErrorException
+     * @param  int    $severity Severity code Error.
+     * @param  string $message Error message.
+     * @param  string $file File name for Error.
+     * @param  int    $line File line for Error.
+     * @return void
+     * @throws ErrorException
      */
     public static function handler($severity, $message, $file, $line)
     {
@@ -56,5 +55,4 @@ class ErrorHandler
     {
         return restore_error_handler();
     }
-
 }

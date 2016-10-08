@@ -10,11 +10,10 @@
 namespace Eureka\Component\Error;
 
 /**
- * Class to handle exception
+ * ErrorException class extends PHP native ErrorException class.
  *
  * @author Romain Cottard
- * @version 2.1.0
  */
-class ExceptionNoData extends Exception
+class ErrorException extends \ErrorException
 {
 }

@@ -13,17 +13,15 @@ namespace Eureka\Component\Error;
  * Class to handle exception
  *
  * @author Romain Cottard
- * @version 2.1.0
  */
 class ExceptionHandler
 {
-
     /**
      * Define Exception Handler
      *
-     * @param string $class Class Name.
-     * @param string $method Class method.
-     * @param string $namespace Class Namespace.
+     * @param  string $class Class Name.
+     * @param  string $method Class method.
+     * @param  string $namespace Class Namespace.
      * @return callback Previous exception handler.
      */
     public static function register($class = 'ExceptionHandler', $method = 'handler', $namespace = '\Eureka\Component\Error')
@@ -36,7 +34,7 @@ class ExceptionHandler
     /**
      * Exception handler when exception have not been caught.
      *
-     * @param Exception $exception
+     * @param  Exception $exception
      * @return void
      */
     public static function handler($exception)
