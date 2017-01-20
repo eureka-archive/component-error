@@ -17,6 +17,18 @@ namespace Eureka\Component\Error;
 class ErrorHandler
 {
     /**
+     * Initialize Error handler.
+     *
+     * @return void
+     */
+    public function init($reporting, $display)
+    {
+        //~ Init errors
+        error_reporting($reporting);
+        ini_set('display_errors', $display);
+    }
+
+    /**
      * Define Error Handler
      *
      * @param  string $class Class Name.
@@ -24,11 +36,9 @@ class ErrorHandler
      * @param  string $namespace Class Namespace.
      * @return callback  Previous exception handler.
      */
-    public static function register($class = 'ErrorHandler', $method = 'handler', $namespace = 'Eureka\Component\Error')
+    public function register($class = 'ErrorHandler', $method = 'handler', $namespace = 'Eureka\Component\Error')
     {
-        $handler = $namespace . '\\' . $class . '::' . $method;
-
-        set_error_handler($handler);
+        set_error_handler([$namespace . '\\' . $class, $handler]);
     }
 
     /**
@@ -41,7 +51,7 @@ class ErrorHandler
      * @return void
      * @throws ErrorException
      */
-    public static function handler($severity, $message, $file, $line)
+    public function handler($severity, $message, $file, $line)
     {
         throw new ErrorException($message, 0, $severity, $file, $line);
     }
@@ -51,7 +61,7 @@ class ErrorHandler
      *
      * @return   boolean
      */
-    public static function restore()
+    public function restore()
     {
         return restore_error_handler();
     }
